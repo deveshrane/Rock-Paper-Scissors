@@ -5,119 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Papers Scissors</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <script>
-      let computerSelection = "";
-      let playerSelection = "";
-      let playerScore = 0;
-      let computerScore = 0;
-      // computerPlay function starts here
-
-      function computerPlay() {
-        let rand = Math.floor(Math.random() * 10);
-        if (rand == 1 || rand == 2 || rand == 3) {
-          computerSelection = "ROCK";
-        } else if (rand == 4 || rand == 5 || rand == 6) {
-          computerSelection = "PAPER";
-        } else {
-          computerSelection = "SCISSORS";
-        }
-        return computerSelection;
-      }
-      //   playRound fucntions starts here
-      function playRound(playerSelect, computerSelect) {
-        playerSelect = playerSelect.toUpperCase();
-        if (playerSelect == "ROCK" && computerSelect == "ROCK") {
-          return (
-            "Your Score: " +
-            playerScore +
-            "\nComputer's Score: " +
-            computerScore
-          );
-        } else if (playerSelect == "ROCK" && computerSelect == "PAPER") {
-          computerScore++;
-          return (
-            "Your Score: " +
-            playerScore +
-            "\nComputer's Score: " +
-            computerScore
-          );
-        } else if (playerSelect == "ROCK" && computerSelect == "SCISSORS") {
-          playerScore++;
-          return (
-            "Your Score: " +
-            playerScore +
-            "\nComputer's Score: " +
-            computerScore
-          );
-        } else if (playerSelect == "PAPER" && computerSelect == "ROCK") {
-          playerScore++;
-          return (
-            "Your Score: " +
-            playerScore +
-            "\nComputer's Score: " +
-            computerScore
-          );
-        } else if (playerSelect == "PAPER" && computerSelect == "PAPER") {
-          return (
-            "Your Score: " +
-            playerScore +
-            "\nComputer's Score: " +
-            computerScore
-          );
-        } else if (playerSelect == "PAPER" && computerSelect == "SCISSORS") {
-          computerScore++;
-          return (
-            "Your Score: " +
-            playerScore +
-            "\nComputer's Score: " +
-            computerScore
-          );
-        } else if (playerSelect == "SCISSORS" && computerSelect == "ROCK") {
-          computerScore++;
-          return (
-            "Your Score: " +
-            playerScore +
-            "\n Computer's Score: " +
-            computerScore
-          );
-        } else if (playerSelect == "SCISSORS" && computerSelect == "PAPER") {
-          playerScore++;
-          return (
-            "Your Score: " +
-            playerScore +
-            "\n Computer's Score: " +
-            computerScore
-          );
-        } else if (playerSelect == "SCISSORS" && computerSelect == "SCISSORS") {
-          return (
-            "Your Score: " +
-            playerScore +
-            "\n Computer's Score: " +
-            computerScore
-          );
-        }
-      }
-      //   Game function starts here
-      function game() {
-        for (let i = 1; i <= 5; i++) {
-          playerSelection = prompt(
-            "Enter one of these: rock,paper,scissors?",
-            "rock"
-          );
-          playerSelection = playerSelection.toUpperCase();
-          console.log(playRound(playerSelection, computerPlay()));
-        }
-        if (playerScore > computerScore) {
-          return "Congratulations you Won !!!";
-        } else if (computerScore > playerScore) {
-          return "Better luck next time.";
-        } else {
-          return "Aah! It was a tie.";
-        }
-      }
-      console.log(game());
-    </script>
+    <div id="container">
+      <h1>Rock Paper Scissors</h1>
+      <div id="box1">
+        <button class="btn"><img src="Images/Rock.png" alt="" /></button>
+        <button class="btn"><img src="Images/Paper.png" alt="" /></button>
+        <button class="btn"><img src="Images/Scissors.png" alt="" /></button>
+      </div>
+      <div id="box2">
+        <p>Your Score:&nbsp;</p>
+        <p id="PScore"></p>
+      </div>
+      <div id="box3">
+        <p>Computer Score:&nbsp;</p>
+        <p id="CScore"></p>
+      </div>
+      <p id="result"></p>
+      <script src="index.js"></script>
+    </div>
   </body>
 </html>
